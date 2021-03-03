@@ -19,11 +19,10 @@ class Trie<V> {
                 node.childrenByCharacter[char] = newNode
                 newNode})
         }
-        val oldHasValue = node.hasValue
-        val oldValue = if (node.hasValue) node.value else null
+        val result = node.toPair()
         node.value = value
         node.hasValue = true
-        return Pair(oldHasValue, oldValue)
+        return result
     }
 
     fun get(key: String): Pair<Boolean, V?>{
