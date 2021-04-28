@@ -11,6 +11,8 @@ class Trie<V> {
         return if (this == null) Pair(false, null) else Pair(hasValue, value)
     }
 
+    fun add(KeyValuePair: Pair<String, V?>) = add(KeyValuePair.first, KeyValuePair.second)
+
     fun add(key: String, value: V?): Pair<Boolean, V?> {
         var node = root
         for (char in key) {
@@ -50,11 +52,10 @@ class Trie<V> {
 
 fun main() {
 
-
     val trie = Trie<Int>()
-    println("Added one to 1: ${trie.add("ONE", 1)}")
-    println("Added two to 22: ${trie.add("TWO", 22)}")
-    println("Added null to null: ${trie.add("NULL", null)}")
+    println("Added one to 1: ${trie.add("ONE" to 1)}")
+    println("Added two to 22: ${trie.add("TWO" to 22)}")
+    println("Added null to null: ${trie.add("NULL" to null)}")
     println("Added two to 2: ${trie.add("TWO", 2)}")
 
     println("Getting one ${trie.get("ONE")}")
